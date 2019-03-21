@@ -1,0 +1,10 @@
+# ignore the following
+*.gz
+/.idea/
+/data/data_formal/
+/data/result/
+
+
+
+
+
