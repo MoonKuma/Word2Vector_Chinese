@@ -5,8 +5,8 @@
 # @Date  : 2019/3/25
 # @Desc  : Controller is for testing each method
 
-from pre_processing import Word_Crop_Preprocessing
+from pre_processing import step1_word_crop_preprocessing
 
 # test word crop pre-processing
-Word_Crop_Preprocessing.merge_data_file()
+step1_word_crop_preprocessing.merge_data_file()
 

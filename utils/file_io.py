@@ -54,4 +54,7 @@ def save_iterable(file_path, iterable,  split=',', over_written=True):
 
 
 def save_info_dict(info_dict, file_path, over_written=True):
+    """
+    This is the version of saving dict info
+    """
     return save_iterable(file_path=file_path,iterable=info_dict.items(),split='\n', over_written=over_written)

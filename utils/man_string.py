@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : method.py
+# @File  : man_string.py
 # @Author: MoonKuma
-# @Date  : 2019/3/25
-# @Desc  : methods used
+# @Date  : 2019/3/26
+# @Desc  : string related methods
+
 
 
 import string
-import sys
-import jieba
-from utils import file_io
 
 def filter_string(string_line, ban_list=list(string.printable)):
     """

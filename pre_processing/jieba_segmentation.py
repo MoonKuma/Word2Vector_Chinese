@@ -7,13 +7,37 @@
 
 
 import jieba
-
-# dict file
-dict_file = 'data/formal_data/test1/zh.moegirl_1W-dict.txt'
-jieba.load_userdict(dict_file)
+import time
 
 
-# allow multi-processing
-jieba.enable_parallel(4)
+def jieba_cut(data_file, dict_file, save_file):
+    # save file
+    # save_file = 'data/formal_data/test1/zh.moegirl_1W-saved.txt'
+    # dict file
+    # dict_file = 'data/formal_data/test1/zh.moegirl_1W-dict.txt'
+    jieba.load_userdict(dict_file)
 
-# data file
+    # allow multi-processing
+    jieba.enable_parallel(4)
+
+    # data file
+    # data_file = 'data/formal_data/test1/zh.moegirl_1W-data-simpled.txt'
+    t1 = time.time()
+    msg = 'data_file:' + data_file
+    msg += '\ndict_file:' + dict_file
+    msg += '\nsave_file:' + save_file
+    msg += '\nStart processing, this may cost some time, please wait...'
+    print(msg)
+    content = open(data_file, "rb").read()
+    words = "/ ".join(jieba.cut(content))
+    t2 = time.time()
+    tm_cost = t2-t1
+    log_f = open(save_file, "wb")
+    log_f.write(words.encode('utf-8'))
+    print('Finished! Speed %s bytes/second' % (len(content)/tm_cost))
+
+
+def execute(data_file, dict_file, save_file):
+    jieba_cut(data_file, dict_file, save_file)
+
+

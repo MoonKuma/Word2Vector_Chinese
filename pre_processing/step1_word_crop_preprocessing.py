@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : Word_Crop_Preprocessing.py
+# @File  : step1_word_crop_preprocessing.py
 # @Author: MoonKuma
 # @Date  : 2019/3/25
 # @Desc  : read data from *.zip, save url into url dict, removing non-chinese characters and save content
@@ -51,32 +51,6 @@ def merge_data_file(data_file_path=default_path, save_path=file_save_path):
                     print(msg, traceback.format_exc())
     save_iterable(file_path=save_name_dict, iterable=word_set, split='\n')
     save_iterable(file_path=save_name_error, iterable=error_set, split='\n')
-
-
-# after merging files, we call open-cc for translating tradition chinese into simple chinese
-# opencc -i E:\PythonProject\Word2Vector_test\data\formal_data\test1\zh.moegirl_1W-data.txt -o E:\PythonProject\Word2Vector_test\data\formal_data\test1\zh.moegirl_1W-data-simpled.txt -c E:\PythonProject\opencc-1.0.4-win32\opencc-1.0.4\share\opencc\t2s.json
-
-# the dict file should also be transferred
-# opencc -i E:\PythonProject\Word2Vector_test\data\formal_data\test1\zh.moegirl_1W-dict.txt -o E:\PythonProject\Word2Vector_test\data\formal_data\test1\zh.moegirl_1W-dict-simpled.txt -c E:\PythonProject\opencc-1.0.4-win32\opencc-1.0.4\share\opencc\t2s.json
-
-
-
-# then use jieba for further segmation
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def _handel_one_file(z_file,name):
