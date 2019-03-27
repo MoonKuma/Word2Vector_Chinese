@@ -8,7 +8,7 @@
 import os
 import zipfile
 from urllib.parse import unquote
-from pre_processing.method import filter_string
+from utils.man_string import filter_string,select_reg
 from utils.file_io import get_file_name, save_iterable
 import traceback
 
@@ -65,11 +65,12 @@ def _handel_one_file(z_file,name):
                 url = a_read[a_read.find(start) + len(start): a_read.find(end)]
                 array = url.split('/')
                 title = unquote(array[len(array) - 1])
-                title = filter_string(title)
+                title = select_reg(title,splitter='')
             # clean current line
             clean_a = filter_string(a_read)
             for red in msg_redundant:
                 clean_a = clean_a.replace(red, '')
+            clean_a = select_reg(clean_a)
         return title, clean_a
 
 

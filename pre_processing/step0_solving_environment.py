@@ -9,9 +9,12 @@
 # Solving Environment
 
 # 1. jieba: word segmentation
-# https://github.com/fxsjy/jieba
+# [original]https://github.com/fxsjy/jieba
 # install
 # pip install jieba
+# or use jieba_fast, this may save half of times
+# [jieba_fast] https://github.com/deepcs233/jieba_fast
+
 
 # testing
 import jieba

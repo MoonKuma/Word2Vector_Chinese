@@ -22,7 +22,7 @@ def opencc_convert(target_file, conf_path, conf_type='t2s.json'):
     if os.path.exists(target_file):
         if os.path.exists(conf_file):
             cmd = 'opencc -i %TARGET_FILE_PATH% -o %RESULT_PATH% -c %CONF_PATH%'
-            cmd.replace('%TARGET_FILE_PATH% ', target_file).replace('%RESULT_PATH%',
+            cmd = cmd.replace('%TARGET_FILE_PATH%', target_file).replace('%RESULT_PATH%',
                                                                     result_file).replace('%CONF_PATH%', conf_file)
             print('Start open-cc converting, cmd:', cmd)
             os.system(cmd)
@@ -32,7 +32,7 @@ def opencc_convert(target_file, conf_path, conf_type='t2s.json'):
         print('[ERROR] target file not exist:', target_file)
 
 
-def execute(data_file_list = default_dict, conf_path=default_conf, conf_type='t2s.json'):
+def execute(data_file_list = default_list, conf_path=default_conf, conf_type='t2s.json'):
     for target_file in data_file_list:
         opencc_convert(target_file, conf_path, conf_type=conf_type)
     pass
