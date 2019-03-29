@@ -66,9 +66,10 @@ def jieba_cut(data_file, dict_file, test_times=10):
     t2 = time.time()
     tm_cost = t2-t1
     print('Finished! time cost: %s second' % str(tm_cost))
+    return result_file
 
 
 def execute(data_file=default_data, dict_file=default_dict, test_times=10):
-    jieba_cut(data_file, dict_file, test_times=test_times)
+    return jieba_cut(data_file, dict_file, test_times=test_times)
 
 

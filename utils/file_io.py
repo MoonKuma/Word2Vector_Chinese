@@ -58,3 +58,18 @@ def save_info_dict(info_dict, file_path, over_written=True):
     This is the version of saving dict info
     """
     return save_iterable(file_path=file_path,iterable=info_dict.items(),split='\n', over_written=over_written)
+
+
+def count_lines(file_name):
+    """
+    Count line number of certain text file (\n as a line)
+    :param file_name: file name
+    :return: line count
+    """
+    count = 0
+    with open(file_name, 'r', encoding='utf-8') as file_to_count:
+        line = file_to_count.readline()  # iterable obj
+        while line:
+            count +=1
+            line = file_to_count.readline()
+    return count

@@ -12,7 +12,7 @@ from utils import file_io
 default_data = 'E:\\PythonProject\\Word2Vector_test\\data\\formal_data\\test1\\zh.moegirl_1W-data.txt'
 default_dict = 'E:\\PythonProject\\Word2Vector_test\data\\formal_data\\test1\zh.moegirl_1W-dict.txt'
 default_conf = 'E:\\PythonProject\\opencc-1.0.4-win32\\opencc-1.0.4\\share\\opencc'
-default_list = [default_data, default_dict]
+
 
 
 def opencc_convert(target_file, conf_path, conf_type='t2s.json'):
@@ -30,10 +30,14 @@ def opencc_convert(target_file, conf_path, conf_type='t2s.json'):
             print('[ERROR] config file not exist:', conf_file)
     else:
         print('[ERROR] target file not exist:', target_file)
+    return result_file
 
 
-def execute(data_file_list = default_list, conf_path=default_conf, conf_type='t2s.json'):
-    for target_file in data_file_list:
-        opencc_convert(target_file, conf_path, conf_type=conf_type)
-    pass
+def execute(data_file = default_data, dict_file=default_dict, conf_path=default_conf, conf_type='t2s.json'):
+    file_list = [os.path.abspath(data_file), os.path.abspath(dict_file)]
+    result_list = list()
+    for target_file in file_list:
+        result = opencc_convert(target_file, conf_path, conf_type=conf_type)
+        result_list.append(result)
+    return result_list[0], result_list[1]
 

@@ -51,6 +51,7 @@ def merge_data_file(data_file_path=default_path, save_path=file_save_path):
                     print(msg, traceback.format_exc())
     save_iterable(file_path=save_name_dict, iterable=word_set, split='\n')
     save_iterable(file_path=save_name_error, iterable=error_set, split='\n')
+    return save_name_dict, save_name_data
 
 
 def _handel_one_file(z_file,name):
